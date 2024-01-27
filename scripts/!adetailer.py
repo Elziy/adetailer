@@ -27,6 +27,7 @@ from adetailer import (
     ultralytics_predict,
 )
 from adetailer.args import ALL_ARGS, BBOX_SORTBY, ADetailerArgs, SkipImg2ImgOrig
+from adetailer.api import on_app_started
 from adetailer.common import PredictOutput
 from adetailer.mask import (
     filter_by_ratio,
@@ -972,6 +973,7 @@ def on_before_ui():
         )
 
 
+script_callbacks.on_app_started(on_app_started)
 script_callbacks.on_ui_settings(on_ui_settings)
 script_callbacks.on_after_component(on_after_component)
 script_callbacks.on_before_ui(on_before_ui)
